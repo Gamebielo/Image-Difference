@@ -1,10 +1,4 @@
-    # -*- coding: utf-8 -*-
-"""
-Spyder Editor
-
-Este é um arquivo de script temporário.
-"""
-
+# Imports Necessários
 from skimage.measure import compare_ssim # skimage possui uma coleção de algorítmos para processamento de imagem
 import argparse # Cria argumentos para passar na linha de comando
 import imutils # Uma série de funções para facilitar trabalhar com imagens
@@ -19,7 +13,6 @@ ap.add_argument("-s", "--second", required=True,
 	help="second image")
 args = vars(ap.parse_args())
 
-
 imageA = cv2.imread(args["first"])
 imageB = cv2.imread(args["second"])
 
@@ -33,7 +26,6 @@ grayB = cv2.cvtColor(imageB, cv2.COLOR_BGR2GRAY)
 # convertemos a matriz em números inteiros não assinados de 8 bits no intervalo  [0, 255]
 diff = (diff * 255).astype("uint8")
 print("SSIM: {}".format(score))
-
 
 # limiar a imagem da diferença, encontrar contornos para
 # oobter a região da diferença das duas imagens
